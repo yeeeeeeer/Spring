@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<properties resource="db.properties"/>
+
+<typeAliases>
+	<typeAlias alias="board" type="com.springbook.biz.board.BoardVO"/>
+</typeAliases>
+
+<environments default="development">
+	<environment id="development">
+		<transactionManager type="JDBC" />
+		<dataSource type="POOLED">
+			<property name="driver" vlaue="${jdbc.dricerClassName}" />
+			<property name="url" vlaue="${jdbc.url}" />
+			<property name="username" vlaue="${jdbc.username}" />
+			<property name="password" vlaue="${jdbc.password}" />
+			
+			
+			
+			
+		</dataSource>
+	</environment>
+
+</environments>
+
+</configuration>

@@ -1,0 +1,6 @@
+package com.springbook.view.controller;
+
+public class Controller {
+	String handlerRequest(HttpServletRequest request, HttpServletResponse response);
+
+}

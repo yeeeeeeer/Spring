@@ -1,0 +1,6 @@
+package com.springbook.biz.user.impl;
+
+// date access object
+public class UserDAO {
+
+}
