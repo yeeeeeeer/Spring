@@ -1,0 +1,5 @@
+package com.lbi.mapper;
+
+public interface BoardMapper {
+
+}

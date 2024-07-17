@@ -21,3 +21,13 @@ commit;
 
 desc board;
 desc users;
+
+create table lbi_board(
+    bno number generated always as IDENTITY,
+    title varchar2(150) not null,
+    content varchar2(2000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    updatedate date default sysdate,
+    constraint pk_board PRIMARY key(bno)
+);
