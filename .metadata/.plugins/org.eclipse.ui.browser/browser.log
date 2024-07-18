@@ -1,0 +1,14 @@
+
+7월 18, 2024 10:02:03.976 NEW SESSION
+7월 18, 2024 10:02:03.976 Created TensorFlow Lite XNNPACK delegate for CPU.
+7월 18, 2024 10:06:23.478 [4384:15072:0718/100623.478:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+7월 18, 2024 10:06:24.72 [4384:15072:0718/100624.071:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+7월 18, 2024 10:06:24.206 [4384:15072:0718/100624.205:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+7월 18, 2024 10:44:58.700 [4384:15072:0718/104458.700:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+7월 18, 2024 10:51:18.761 Created TensorFlow Lite XNNPACK delegate for CPU.
+7월 18, 2024 10:51:36.965 [3184:13476:0718/105136.965:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+7월 18, 2024 11:36:25.686 Created TensorFlow Lite XNNPACK delegate for CPU.
+7월 18, 2024 11:48:21.489 Created TensorFlow Lite XNNPACK delegate for CPU.
+7월 18, 2024 11:49:15.257 [23024:1728:0718/114915.257:ERROR:device_event_log_impl.cc(196)] [11:49:15.257] Bluetooth: bluetooth_adapter_winrt.cc:1056 Getting Default Adapter failed.
+7월 18, 2024 13:59:59.229 [23024:1728:0718/135959.197:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+7월 18, 2024 14:00:13.490 Created TensorFlow Lite XNNPACK delegate for CPU.

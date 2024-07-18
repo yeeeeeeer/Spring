@@ -31,3 +31,12 @@ create table lbi_board(
     updatedate date default sysdate,
     constraint pk_board PRIMARY key(bno)
 );
+
+insert into lbi_board(title, content, writer) values ('테스트 제목', '테스트 내용', '작가');
+insert into lbi_board(title, content, writer) values ('테스트 제목', '테스트 내용', '작가');
+insert into lbi_board(title, content, writer) values ('테스트 제목', '테스트 내용', '작가');
+
+commit;
+
+select * from lbi_board;
+desc lbi_board;

@@ -1,9 +1,0 @@
-package com.springbook.biz.user.impl;
-
-// date access object
-public class UserDAO {
-	
-	// jdbc 관련 변수
-	
-
-}
