@@ -36,6 +36,18 @@ insert into lbi_board(title, content, writer) values ('테스트 제목', '테�
 insert into lbi_board(title, content, writer) values ('테스트 제목', '테스트 내용', '작가');
 insert into lbi_board(title, content, writer) values ('테스트 제목', '테스트 내용', '작가');
 
+-- 재귀 복사
+insert into lbi_board(title, content, writer) (select title, content, writer from lbi_board);
+
+-- 행 확인
+select count(*) from lbi_board;
+
+-- Rownum 방식 2
+select rn, bno, title, content, writer, regdate, updatedate from(
+    select /*+INDEX_DESC(lbi_board pk_board) */ rownum as rn, bno, title, content, writer, regdate, updatedate
+    from lbi_board where rownum <= 20)
+where rn > 10;
+
 commit;
 
 select * from lbi_board;

@@ -31,7 +31,7 @@ public class BoardController {
 	}
 
 	@GetMapping("/enroll")
-	// => @RequestMapping(value="enroll", method=RequestMethod.GET) 
+	// => @RequestMapping(value="enroll", method=RequestMethod.GET)
 	public void boardEnrollGET() {
 
 		log.info("게시판 등록 페이지 진입");
@@ -47,29 +47,39 @@ public class BoardController {
 
 		return "redirect:/board/list";
 	}
-	
+
 	/* 게시판 조회 */
 	@GetMapping("/get")
 	public void boardGetPageGET(int bno, Model model) {
-		
+
 		model.addAttribute("pageInfo", bservice.getPage(bno));
 	}
-	
+
 	/* 수정 페이지 */
 	@GetMapping("/modify")
 	public void boardModifyGET(int bno, Model model) {
-		
+
 		model.addAttribute("pageInfo", bservice.getPage(bno));
 	}
-	
+
 	/* 페이지 수정 */
 	@PostMapping("/modify")
 	public String boardModifyPOST(BoardVO board, RedirectAttributes rttr) {
-		
+
 		bservice.modify(board);
-		
+
 		rttr.addFlashAttribute("result", "modify success");
-		
+
+		return "redirect:/board/list";
+	}
+
+	/* 페이지 삭제 */
+	@PostMapping("/delete")
+	public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+		bservice.delete(bno);
+
+		rttr.addFlashAttribute("result", "delete success");
+
 		return "redirect:/board/list";
 	}
 }
