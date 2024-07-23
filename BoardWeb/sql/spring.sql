@@ -52,3 +52,21 @@ commit;
 
 select * from lbi_board;
 desc lbi_board;
+
+CREATE TABLE BOOK_MEMBER(
+    memberId VARCHAR2(50),
+    memberPw VARCHAR2(100) NOT NULL,
+    memberName VARCHAR2(30) NOT NULL,
+    memberMail VARCHAR2(100) NOT NULL,
+    memberAddr1 VARCHAR2(100) NOT NULL,
+    memberAddr2 VARCHAR2(100) NOT NULL,
+    memberAddr3 VARCHAR2(100) NOT NULL,
+    adminCk NUMBER NOT NULL,
+    regDate DATE NOT NULL,
+    money number NOT NULL,
+    point number NOT NULL,
+    PRIMARY KEY(memberId)
+);
+commit;
+
+select * from BOOK_MEMBER;
