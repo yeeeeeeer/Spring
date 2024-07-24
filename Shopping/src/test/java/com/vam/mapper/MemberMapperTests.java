@@ -31,11 +31,24 @@ public class MemberMapperTests {
 	}
 
 	// 아이디 중복검사
-	@Test
 	public void memberIdChk() throws Exception {
 		String id = "lbi123"; // 존재하는 아이디
 		String id2 = "test123"; // 존재하지 않는 아이디
 		membermapper.idCheck(id);
 		membermapper.idCheck(id2);
+	}
+	
+	// 로그인 쿼리 mapper 메서드 테스트
+	@Test
+	public void memberLogin() throws Exception{
+		MemberVO member = new MemberVO();
+		
+		member.setMemberId("test1234");
+		member.setMemberPw("1234");
+		
+		membermapper.memberLogin(member);
+		System.out.println("결과 값 : " + membermapper.memberLogin(member));
+		
+		
 	}
 }

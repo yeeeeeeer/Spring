@@ -67,6 +67,13 @@ CREATE TABLE BOOK_MEMBER(
     point number NOT NULL,
     PRIMARY KEY(memberId)
 );
+
+
+-- 회원가입 쿼리
+insert into book_member
+values('admin23', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 1, sysdate, 1000000, 1000000);
+
+
 commit;
 
 select * from BOOK_MEMBER;
