@@ -123,11 +123,11 @@ public class MemberController {
 	}
 
 	// 로그인
-	@PostMapping("/login")
+	@PostMapping("/login.do")
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception {
 
-		//System.out.println("login 메서드 진입");
-		//System.out.println("전달된 데이터 : " + member);
+		// System.out.println("login 메서드 진입");
+		// System.out.println("전달된 데이터 : " + member);
 
 		HttpSession session = request.getSession();
 		String rawPw = "";
@@ -135,7 +135,7 @@ public class MemberController {
 
 		MemberVO lvo = memberService.memberLogin(member); // 제출한 아이디와 일치하는 아이디가 있는지
 
-		if (lvo == null) { // 일치하는 아이디 존재 시
+		if (lvo != null) { // 일치하는 아이디 존재 시
 
 			rawPw = member.getMemberPw(); // 사용자가 제출한 비밀번호
 			encodePw = lvo.getMemberPw(); // 데이터베이스에 저장한 인코딩된 비밀번호
@@ -146,7 +146,7 @@ public class MemberController {
 				session.setAttribute("member", lvo); // session에 사용자의 정보 저장
 				return "redirect:/main"; // 메인페이지 이동
 			} else {
-				
+
 				rttr.addFlashAttribute("result", 0);
 				return "redirect:/member/login"; // 로그인 페이지로 이동
 			}
@@ -155,5 +155,23 @@ public class MemberController {
 			rttr.addFlashAttribute("result", 0);
 			return "redirect:/member/login"; // 로그인 페이지로 이동
 		}
+	}
+
+	// 메인페이지 로그아웃
+	@GetMapping("/logout.do")
+	public String logoutMainGET(HttpServletRequest request) throws Exception {
+		logger.info("logoutMainGET메서드 진입");
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/main";
+	}
+
+	// 비동기식 로그아웃 메서드
+	@PostMapping("/logout.do")
+	@ResponseBody
+	public void logoutPOST(HttpServletRequest request) throws Exception {
+		logger.info("비동기 로그아웃 메서드 진입");
+		HttpSession session = request.getSession();
+		session.invalidate();
 	}
 }

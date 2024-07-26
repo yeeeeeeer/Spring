@@ -73,7 +73,35 @@ CREATE TABLE BOOK_MEMBER(
 insert into book_member
 values('admin23', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 1, sysdate, 1000000, 1000000);
 
+update book_member set adminck = 1 where memberid = 'test1021';
 
+drop table vam_nation;
+drop table vam_author;
+-- 국가 테이블 생성
+create table vam_nation(
+    nationId VARCHAR2(2) primary key,
+    nationName VARCHAR2(50)
+);
+
+-- 국가 테이블 데이터 삽입
+insert into vam_nation values ('01', '국내');
+insert into vam_nation values ('02', '국외');
+
+-- 작가 테이블 생성
+create table vam_author(
+    authorId number generated as identity (start with 1) primary key,
+    authorName varchar2(50),
+    nationId varchar2(2),
+    authorIntro long,
+    foreign key (nationId) references vam_nation(nationId)
+);
+
+insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '01', '작가 소개합니다');
+insert into vam_author(authorName, nationId, authorIntro) values('김난도', '01', '작가 소개합니다');
+insert into vam_author(authorName, nationId, authorIntro) values('폴크루그먼', '02', '작가 소개합니다');
+
+-- orcle 경우
 commit;
 
 select * from BOOK_MEMBER;
+select * from vam_author;

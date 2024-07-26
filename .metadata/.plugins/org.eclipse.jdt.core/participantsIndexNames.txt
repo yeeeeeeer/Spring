@@ -23,5 +23,7 @@ D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3182883774.index
 \Shopping\src\main\java
 D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2597632007.index
 \BoardWeb2\src\main\java
+D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\218192003.index
+\Shopping\src\main\java
 D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2101932366.index
 \Board\src\main\java
