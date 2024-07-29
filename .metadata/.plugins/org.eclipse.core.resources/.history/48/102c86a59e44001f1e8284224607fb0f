@@ -1,5 +1,0 @@
-package com.lbi.service;
-
-public interface BoardService {
-
-}

@@ -100,8 +100,24 @@ insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '0
 insert into vam_author(authorName, nationId, authorIntro) values('김난도', '01', '작가 소개합니다');
 insert into vam_author(authorName, nationId, authorIntro) values('폴크루그먼', '02', '작가 소개합니다');
 
--- orcle 경우
-commit;
+alter table vam_author add regDate date default sysdate;
+alter table vam_author add updateDate date default sysdate;
+
+delete from vam_author;
+
+ALTER TABLE vam_author MODIFY(authorId GENERATED AS IDENTITY (START WITH 1));
+
+insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '01', '작가 소개합니다');
+insert into vam_author(authorName, nationId, authorIntro) values('김난도', '01', '작가 소개합니다');
+insert into vam_author(authorName, nationId, authorIntro) values('폴크루그먼', '02', '작가 소개합니다');
+
+insert into vam_author (authorName, nationId, authorIntro) values('작가이름', '01', '작가소개');
 
 select * from BOOK_MEMBER;
 select * from vam_author;
+
+-- orcle 경우
+commit;
+
+
+
