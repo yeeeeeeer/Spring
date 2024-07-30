@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<%-- <%@include file="../includes/admin/header.jsp"%> --%>
+	<%@include file="../includes/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 
-	<%-- <%@include file="../includes/admin/footer.jsp"%> --%>
+	<%@include file="../includes/admin/footer.jsp"%>
 
 	<script>
 		/* 등록 버튼 */

@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<%-- <%@include file="../includes/admin/header.jsp"%> --%>
+	<%@include file="../includes/admin/header.jsp"%>
 
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
@@ -109,7 +109,7 @@
 
 	</div>
 
-	<%-- <%@include file="../includes/admin/footer.jsp"%> --%>
+	<%@include file="../includes/admin/footer.jsp"%>
 
 	<script>
 		$(document).ready(function() {
@@ -165,7 +165,7 @@
 
 		});
 
-		/* 작거 검색 버튼 동작 */
+		/* 작가 검색 버튼 동작 */
 		$("#searchForm button").on("click", function(e) {
 
 			e.preventDefault();

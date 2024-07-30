@@ -9,6 +9,8 @@ D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4008603857.index
 \BoardWeb\src\main\java
 D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2806564625.index
 \BoardWeb\src\main\java
+D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\447816520.index
+\Shopping\src\main\java
 D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1985579192.index
 \BoardWeb\src\main\java
 D:\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2504459299.index

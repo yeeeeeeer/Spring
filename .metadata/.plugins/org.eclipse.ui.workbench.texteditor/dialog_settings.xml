@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="logo_area"/>
+		<item key="selection" value="상품 관리"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="상품 관리"/>
+			<item value="admin_content_wrap"/>
+			<item value="gnb_logout_button"/>
+			<item value="gnb_logout"/>
+			<item value="top_gnb_area"/>
 			<item value="logo_area"/>
 			<item value="로그아웃"/>
 			<item value="login"/>

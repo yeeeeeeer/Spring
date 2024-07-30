@@ -1,3 +1,14 @@
+drop table board;
+drop table users;
+drop table lbi_board;
+drop table BOOK_MEMBER;
+drop table vam_nation;
+drop table vam_author;
+drop table vam_book;
+drop table vam_bcate;
+drop table vam_author;
+
+
 create table board(
     seq number(5) primary key,
     title varchar2(200),
@@ -75,8 +86,7 @@ values('admin23', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 1, sysda
 
 update book_member set adminck = 1 where memberid = 'test1021';
 
-drop table vam_nation;
-drop table vam_author;
+
 -- 국가 테이블 생성
 create table vam_nation(
     nationId VARCHAR2(2) primary key,
@@ -113,11 +123,85 @@ insert into vam_author(authorName, nationId, authorIntro) values('폴크루그�
 
 insert into vam_author (authorName, nationId, authorIntro) values('작가이름', '01', '작가소개');
 
+-- 재귀 복사
+insert into vam_author(authorname, nationid) (select authorname, nationid from vam_author);
+
 select * from BOOK_MEMBER;
 select * from vam_author;
 
 -- orcle 경우
 commit;
 
+-- 상품 테이블
+create table vam_book(
+    bookId number generated as identity (start with 1) primary key,
+    bookName varchar2(50) not null,
+    authorId number,
+    publeYear Date not null,
+    publisher varchar2(70) not null,
+    cateCode varchar2(30),
+    bookPrice number not null,
+    bookStock number not null,
+    bookDiscount number(2,2),
+    bookIntro clob,
+    bookContents clob,
+    regDate date default sysdate,
+    updateDate date default sysdate
+);
+    
+    
+
+-- 카테고리 테이블
+create table vam_bcate(
+    tier number(1) not null,
+    cateName varchar2(30) not null,
+    cateCode varchar2(30) not null,
+    cateParent varchar2(30),
+    primary key(cateCode),
+    foreign key(cateParent) references vam_bcate(cateCode)
+);
+
+commit;
+
+-- 데이터 삽입
+insert into vam_bcate(tier, cateName, cateCode) values (1, '국내', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '소설', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '한국소설', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '영미소설', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '일본소설', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '시/에세이', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '한국시', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '해외시', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '경제/경영', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '경영일반', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '경영이론', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '경영일반', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '경영이론', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '자기계발', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '성공/처세', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '자기능력계발', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '인간관계', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '인문', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '심리학', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '교육학', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (3, '철학', '101000', '100000');
+insert into vam_bcate(tier, cateName, cateCode, cateParent) values (2, '역사/문학', '101000', '100000');
 
 
+commit;
+
+select * from vam_bcate;
+
+delete from vam_book;
+
+-- 외래키 추가
+alter table vam_book add foreign key (authorId) references vam_author (authorId);
+alter table vam_book add foreign key (cateCode) references vam_bcate (cateCode);
+
+commit;
+
+-- 재귀 복사
+insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock,
+                    bookDiscount, bookIntro, bookContents)
+(select bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents
+from vam_book);
