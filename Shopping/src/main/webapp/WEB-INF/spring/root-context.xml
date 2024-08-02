@@ -48,6 +48,8 @@
 		</property>
 	</bean>
 
+	
+	
 	<mybatis-spring:scan base-package="com.vam.mapper" />
 
 	<context:component-scan base-package="com.vam.model" />
